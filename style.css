@@ -19,55 +19,61 @@ body,html
     flex-direction: row;
     justify-content: space-between;
     background-color: #F1EBF2;
-    height: 100px;
+}
+header{
+    background-image: url("backend/images/teddy-3405768_1920.jpg");
+    height: 1000px;
 
 }
 .logo img{
-    width: 220px;
+    width: 320px;
     height: 100px;
     object-fit: cover;
 }
 .navigation {
     margin-top: 20px;
     padding-right: 20px;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 .navigation a{
 text-decoration: none;
 color: black;
 }
-.presentation,.produit {
-    background-color: #FAE5FA;
+.presentation{
     padding: 40px 20px;
     text-align: center;
 }
 .produit img{
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
+    width: 50%;
+    object-fit: contain;
 }
-.wally,.angel,.caramel,.twinky,.winnie{
+.Norbert,.Arnold,.Lenny,.Gustav,.Garfunkel{
     display: flex;
-    justify-content: center;
-    margin:40px 20px;
+    margin:40px;
+    border: 1px solid #F1EBF2;
+    width: 75%;    
+    background-color: #F1EBF2;
+    border-radius: 20px;
     
-
+    
 }
 .titre{
     display: flex;
     align-items: center;
-    margin-left: 50px;
-    padding-right: 40px;
+    margin-left: 100px;
+    margin-right: 60px;
 }
 .histoire{
     text-align: center;
-    background-color:#F0BCF6;
     padding:40px 20px;
 }
 footer{
     text-align: center;
     padding:40px 20px;
-    background-color: #F8EEF9;
     padding:40px 20px;
+    background-color:#F1EBF2;
+
 }
 .tel{
     display: flex;
@@ -76,6 +82,27 @@ footer{
 .tel i{
 margin-top: 20px;;
 }
-
-
+@media (max-width:600px){
+    .logo img{
+        width: 220px;
+    }
+    .head{
+        display: flex;
+        flex-direction: column;
+    }
+    header{
+        background-image: url("backend/images/teddy-3405768_640.jpg");
+        height: 480px;
+    }
+    .titre{
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+}     
+@media (max-width:436px){
+    .titre{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
 
