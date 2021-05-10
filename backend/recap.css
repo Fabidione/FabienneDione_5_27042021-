@@ -56,6 +56,48 @@ footer{
 margin-top: 20px;;
 }
 /*generalités*/
+.intro{
+    text-align: center;
+}
+.texte1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #F1EBF2;
+    margin: 40px;
+    padding: 30px;
+    
+}
+.texte2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:4px solid #F1EBF2;
+    
+}
+.texte{
+background-color: #F1EBF2;
+border-radius: 20px;
+}
+.retour-accueil{
+    display: flex;
+    justify-content: center;
+}
+.retour{
+    margin: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(158, 69, 146);    
+}
+.texte2{
+    border:5px solid white;
+
+}
+
+
 
 
 
@@ -67,7 +109,7 @@ margin-top: 20px;;
         background-image: url("backend/images/teddy-3405768_640.jpg");
         height: 480px;
     }
-
+}
 @media (max-width:600px){
     .logo img{
         width: 220px;
