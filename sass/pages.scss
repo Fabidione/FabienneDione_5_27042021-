@@ -1,0 +1,73 @@
+.intitule {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1.4em;
+}
+.presentation__produit {
+  @media (max-width: 600px) {
+    margin-right: 20px;
+  }
+  & img {
+    width: 60%;
+    object-fit: contain;
+    text-align: center;
+  }
+}
+.leNorbert,
+.lArnold,
+.leLenny,
+.leGustav,
+.leGarfunkel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f1ebf2;
+  width: 90%;
+  margin: 40px;
+  background-color: #f1ebf2;
+  border-radius: 20px;
+  text-decoration: none;
+  padding-bottom: 40px;
+  justify-content: center;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0px 70px;
+}
+.boutons {
+  display: flex;
+  justify-content: center;
+}
+.bouton {
+  color: white;
+  background-color: rgb(102, 62, 139);
+  padding: 20px;
+  border-radius: 20px;
+}
+.letitre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 60px;
+}
+select {
+  margin-bottom: 30px;
+}
+.histoire {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.retour-accueil {
+  display: flex;
+  justify-content: center;
+}
+.retour {
+  margin: 50px;
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(158, 69, 146);
+}
