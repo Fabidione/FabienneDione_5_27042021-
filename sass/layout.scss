@@ -1,0 +1,55 @@
+/*header*/
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f1ebf2;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+header {
+  background-image: url("/backend/teddy-3405768_1280.jpg");
+  height: 850px;
+  @media (max-width: 800px) {
+    background-image: url("/backend/images/teddy-3405768_640.jpg");
+    height: 480px;
+  }
+}
+.logo img {
+  width: 320px;
+  height: 100px;
+  object-fit: cover;
+  @media (max-width: 600px) {
+    width: 220px;
+    height: 70px;
+  }
+}
+.navigation {
+  margin-top: 20px;
+  padding-right: 20px;
+  font-size: 1.5em;
+  font-weight: 500;
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+}
+/*header*/
+
+/*footer*/
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  padding: 40px 20px;
+  background-color: #f1ebf2;
+}
+.tel {
+  display: flex;
+  justify-content: center;
+  & i {
+    margin-top: 20px;
+  }
+}
+/*footer*/
