@@ -1,0 +1,126 @@
+@charset "UTF-8";
+/*generalités*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", sans-serif; }
+
+body,
+html {
+  height: 100%; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/*generalités*/
+/*header*/
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f1ebf2; }
+  @media (max-width: 600px) {
+    .head {
+      display: flex;
+      flex-direction: column; } }
+
+header {
+  background-image: url("/backend/teddy-3405768_1280.jpg");
+  height: 850px; }
+  @media (max-width: 800px) {
+    header {
+      background-image: url("/backend/images/teddy-3405768_640.jpg");
+      height: 480px; } }
+
+.logo img {
+  width: 320px;
+  height: 100px;
+  object-fit: cover; }
+  @media (max-width: 600px) {
+    .logo img {
+      width: 220px;
+      height: 70px; } }
+
+.navigation {
+  margin-top: 20px;
+  padding-right: 20px;
+  font-size: 1.5em;
+  font-weight: 500; }
+  .navigation a {
+    text-decoration: none;
+    color: black; }
+
+/*header*/
+/*footer*/
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  padding: 40px 20px;
+  background-color: #f1ebf2; }
+
+.tel {
+  display: flex;
+  justify-content: center; }
+  .tel i {
+    margin-top: 20px; }
+
+/*footer*/
+.presentation {
+  text-align: center; }
+
+.produit img {
+  width: 60%;
+  object-fit: contain;
+  text-align: center;
+  border-radius: 20px 0px 0px 20px; }
+
+@media (max-width: 600px) {
+  .Norbert,
+  .Arnold,
+  .Lenny,
+  .Gustav,
+  .Garfunkel {
+    margin-right: 20px; } }
+.Norbert a, .Norbert a, .Norbert a, .Norbert a, .Norbert a,
+.Arnold a,
+.Arnold a,
+.Arnold a,
+.Arnold a,
+.Arnold a,
+.Lenny a,
+.Lenny a,
+.Lenny a,
+.Lenny a,
+.Lenny a,
+.Gustav a,
+.Gustav a,
+.Gustav a,
+.Gustav a,
+.Gustav a,
+.Garfunkel a,
+.Garfunkel a,
+.Garfunkel a,
+.Garfunkel a,
+.Garfunkel a {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #f1ebf2;
+  margin: 40px;
+  width: 90%;
+  background-color: #f1ebf2;
+  border-radius: 20px;
+  text-decoration: none; }
+
+.titre {
+  display: flex;
+  align-items: center;
+  padding-left: 20px; }
+
+.histoire {
+  text-align: center;
+  padding: 40px 20px;
+  margin-left: 50px; }
+
+/*# sourceMappingURL=main.css.map */
