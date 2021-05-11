@@ -1,0 +1,19 @@
+{
+  "name": "orinoco",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabidione/FabienneDione_5_27042021-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabidione/FabienneDione_5_27042021-/issues"
+  },
+  "homepage": "https://github.com/Fabidione/FabienneDione_5_27042021-#readme"
+}
