@@ -1,3 +1,4 @@
+/*style page produit*/
 .intitule {
   padding: 40px 20px;
   text-align: center;
@@ -20,10 +21,10 @@
 .leGarfunkel {
   display: flex;
   flex-direction: column;
-  border: 1px solid #f1ebf2;
+  border: 1px solid $backgroundcolor;
   width: 90%;
   margin: 40px;
-  background-color: #f1ebf2;
+  background-color: $backgroundcolor;
   border-radius: 20px;
   text-decoration: none;
   padding-bottom: 40px;
@@ -40,8 +41,8 @@
   justify-content: center;
 }
 .bouton {
-  color: white;
-  background-color: rgb(102, 62, 139);
+  color: $colorwhite;
+  background-color: $violetfonce;
   padding: 20px;
   border-radius: 20px;
 }
@@ -59,7 +60,47 @@ select {
   text-align: center;
   padding: 40px 20px;
 }
+/*style page produit*/
 
+/*style page panier*/
+.intro {
+  text-align: center;
+}
+.tableau {
+  border: 1px solid $backgroundcolor;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px;
+  padding: 30px;
+  background-color: $backgroundcolor;
+  border-radius: 20px;
+  @media (max-width: 340px) {
+    padding: 10px;
+  }
+}
+.formulaire {
+  border: 4px solid $colorwhite;
+  padding: 30px;
+  margin-top: 60px;
+}
+.prenom,
+.nom,
+.adresse,
+.ville,
+.email {
+  margin-bottom: 30px;
+}
+.validercom button {
+  margin: 50px;
+  padding: 30px;
+  border-radius: 20px;
+  color: $colorwhite;
+  background-color: $violetfonce;
+  @media (max-width: 600px) {
+    margin: 0px;
+  }
+}
 .retour-accueil {
   display: flex;
   justify-content: center;
@@ -68,6 +109,35 @@ select {
   margin: 50px;
   padding: 30px;
   border-radius: 20px;
-  color: white;
-  background-color: rgb(158, 69, 146);
+  color: $colorwhite;
+  background-color: $violetfonce;
 }
+/*style page panier*/
+
+/* style page recap*/
+.texte {
+  border: 1px solid $backgroundcolor;
+  background-color: $backgroundcolor;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.texte1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+.texte2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 9px solid $colorwhite;
+  width: 90%;
+  margin: 0px 20px 50px 20px;
+  padding: 30px;
+  @media (max-width: 340px) {
+    margin-right: 30px;
+  }
+}
+/* style page recap*/

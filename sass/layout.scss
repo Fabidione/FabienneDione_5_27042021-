@@ -53,3 +53,17 @@ footer {
   }
 }
 /*footer*/
+
+/*bouton accueil*/
+.retour-accueil {
+  display: flex;
+  justify-content: center;
+}
+.retour {
+  margin: 50px;
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(158, 69, 146);
+}
+/*bouton accueil*/
