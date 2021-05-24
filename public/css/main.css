@@ -28,7 +28,7 @@ html {
       flex-direction: column; } }
 
 header {
-  background-image: url("/backend/teddy-3405768_1280.jpg");
+  background-image: url("/backend/images/teddy-3405768_1280.jpg");
   height: 850px; }
   @media (max-width: 800px) {
     header {
@@ -36,7 +36,7 @@ header {
       height: 480px; } }
 
 .logo img {
-  width: 320px;
+  width: 300px;
   height: 100px;
   object-fit: cover; }
   @media (max-width: 600px) {
@@ -47,7 +47,7 @@ header {
 .navigation {
   margin-top: 20px;
   padding-right: 20px;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 500; }
   .navigation a {
     text-decoration: none;
