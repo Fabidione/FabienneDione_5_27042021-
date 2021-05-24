@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -13,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./src/js/script.js"defer></script>
+    <script src="backend/models/Teddy.js" defer></script>
 
     <!-- Primary Meta Tags -->
   <title>Ourson-Orinoco</title>
@@ -34,8 +37,8 @@
 
   </head>
 
-  <body>
-  <!--header-->
+  <body class="produit" >
+    <!--header-->
     <header>
       <div class="head">
         <div class="logo">
@@ -56,129 +59,11 @@
   <!--intitule-->
 
   <!--presentation produit-->
-  <div class="presentation__produit">
-    <div class="leNorbert">
-      <div class="image">
-        <img src="./backend/images/teddy_1.jpg" alt="Norbert">
-      </div>
-      <div class="letitre">
-        <h4>Norbert</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Son prix : 29 €</p>
-        <label for="color-select">Personnalisez sa couleur :</label>
-        <select name="color" id="color-select">
-          <option value="choix">--Choisissez votre couleur--</option>
-          <option value="tan">Tan</option>
-          <option value="choco">Chocolate</option>
-          <option value="black">Black</option>
-          <option value="white">White</option>
-        </select>
-      </div>
-      <div class="boutons">
-        <a href="panier.html">
-          <input class="bouton"
-            type="button"
-            value="Ajouter au panier">
-        </a>
-      </div>
-    </div>
-    <div class="lArnold">
-      <div class="image">
-        <img src="./backend/images/teddy_2.jpg" alt="Arnold">
-      </div>
-      <div class="letitre">
-        <h4>Arnold</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Son prix : 39 €</p>
-        <label for="color-select">Personnalisez sa couleur :</label>
-        <select name="color" id="color-select">
-          <option value="choix">--Choisissez votre couleur--</option>
-          <option value="Pale">Pale brown</option>
-          <option value="Dark">Dark brown</option>
-          <option value="blanc">White</option>
-        </select>
-      </div>
-      <div class="boutons">
-        <a href="panier.html">
-          <input class="bouton"
-            type="button"
-            value="Ajouter au panier">
-        </a>
-      </div>
-    </div>
-    <div class="leLenny">
-      <div class="image">
-        <img src="./backend/images/teddy_3.jpg" alt="Lenny">
-      </div>
-      <div class="letitre">
-        <h4>Lenny and Car</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Son prix : 59 €</p>
-        <label for="color-select">Personnalisez sa couleur :</label>
-        <select name="color" id="color-select">
-          <option value="choix">--Choisissez votre couleur--</option>
-          <option value="b">Brown</option>
-        </select>
-      </div>
-      <div class="boutons">
-        <a href="panier.html">
-          <input class="bouton"
-            type="button"
-            value="Ajouter au panier">
-        </a>
-      </div>
-    </div>
-    <div class="leGustav">
-      <div class="image">
-        <img src="./backend/images/teddy_4.jpg" alt="Gustav">
-      </div>
-      <div class="letitre">
-        <h4>Gustav</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Son prix : 45 €</p>
-        <label for="color-select">Personnalisez sa couleur :</label>
-        <select name="color" id="color-select">
-          <option value="choix">--Choisissez votre couleur--</option>
-          <option value="bb">Brown</option>
-          <option value="Blue">Blue</option>
-          <option value="pink">Pink</option>
-        </select>
-      </div>
-      <div class="boutons">
-        <a href="panier.html">
-          <input class="bouton"
-            type="button"
-            value="Ajouter au panier">
-        </a>
-      </div>
-    </div>
-    <div class="leGarfunkel">
-      <div class="image">
-        <img src="./backend/images/teddy_5.jpg" alt="Garfunkel">
-      </div>
-      <div class="letitre">
-        <h4>Garfunkel</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Son prix : 55 €</p>
-        <label for="color-select">Personnalisez sa couleur :</label>
-        <select name="color" id="color-select">
-          <option value="choix">--Choisissez votre couleur--</option>
-          <option value="beige">Beige</option>
-          <option value="t">Tan</option>
-          <option value="Chocolate">Chocolate</option>
-        </select>
-      </div>
-      <div class="boutons">
-        <a href="panier.html">
-          <input class="bouton"
-            type="button"
-            value="Ajouter au panier">
-        </a>
-      </div>
-    </div>
+  <div id="oursonchoice">
+    
   </div>
   <!--presentation produit-->
-
+  
   <!--retour accueil-->
   <div class="retour-accueil">
     <a href="index.html">

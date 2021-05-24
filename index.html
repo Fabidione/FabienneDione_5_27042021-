@@ -13,6 +13,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./src/js/script.js"defer></script>
+    <script src="backend/models/Teddy.js" defer></script>
+    
+  
+
 
     <!-- Primary Meta Tags -->
   <title>Orinoco</title>
@@ -34,7 +39,7 @@
 
   </head>
 
-  <body>
+  <body class="accueil" onload="chargement()">
   <!--header-->
     <header>
       <div class="head">
@@ -49,43 +54,13 @@
   <!--header-->
 
   <!--presentation produits-->
-    <div class="presentation">
-      <h1>Oribears</h1>
-      <p>Créez des cadeaux et produits uniques en personnalisant vos ours en peluche faits à la main</p>
-    </div>
-
-    <div class="produit">
-      <div class="Norbert">
-        <a href="produit.html">
-          <img src="./backend/images/teddy_1.jpg" alt="Norbert">
-          <div class="titre"><p>Norbert<br>29.00€</p></div>
-        </a>
-      </div>
-      <div class="Arnold">
-        <a href="produit.html">
-          <img src="./backend/images/teddy_2.jpg" alt="Arnold">
-          <div class="titre"><p>Arnold<br>39.00€</p></div>
-        </a>
-      </div>
-      <div class="Lenny">
-        <a href="produit.html">
-          <img src="./backend/images/teddy_3.jpg" alt="Lenny">
-          <div class="titre"><p>Lenny and Car<br>59.00€</p></div>
-        </a>
-      </div>
-      <div class="Gustav">
-        <a href="produit.html">
-          <img src="./backend/images/teddy_4.jpg" alt="Gustav">
-          <div class="titre"><p>Gustav<br>45.00€</p></div>
-        </a>
-      </div>
-      <div class="Garfunkel">
-        <a href="produit.html">
-          <img src="./backend/images/teddy_5.jpg" alt="Garfunkel">
-          <div class="titre"><p>Garfunkel<br>55.00€</p></div>
-        </a>
-      </div>
-    </div>
+  <h1>Oribears</h1>
+  <p>Créez des cadeaux et produits uniques en personnalisant vos ours en peluche faits à la main</p>
+  <div class="presentation__produit" id="ourson">
+    
+  </div>
+  
+    
   <!--presentation produits-->
 
   <!--historique-->
