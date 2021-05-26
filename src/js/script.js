@@ -1,50 +1,44 @@
-//Caractéristiques teddies//
-function chargement() {
-  const liste=teddies;
-  console.log(liste);
-var resultatfinal='';
-for(i=0;i<liste.length;i++){
-  var resultat= '<div class="leNorbert">'
-  resultat+= '<div class="image"><img src="./backend/images/'+liste[i].imageUrl+'" alt="'+liste[i].name+'"><a href="produit.html"></a></div>';
-  resultat+='<div class="letitre"><h4>'+liste[i].name+'</h4>';
-  resultat+='<p>'+liste[i].description+'</p>';
-  resultat+='<p>'+liste[i].price+'</p>';
-  resultat+='<label for="color-select">Personnalisez sa couleur :</label>';
-  resultat+='<select name="color" id="color-select">';
-  resultat+='<option value="choix">--Choisissez votre couleur--</option>';
-  for(j=0;j<liste[i].colors.length;j++){
-    resultat+='<option value="'+liste[i].colors[j]+'">'+liste[i].colors[j]+'</option>';
-  }
-  resultat+='</select>';
-  resultat+='<div class="boutons">';
-  resultat+='<a href="produit.html">';
-  resultat+='<input class="bouton" type="button" value="plus de details">';
-  resultat+='</a>';
-  resultat+='</div>';
-  resultat+='</div>';
-  resultatfinal+=resultat;
-}
-
-  document.getElementById("ourson").innerHTML = resultatfinal;   }     
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const produit = document.querySelector("body.produit");
-  
-    if (produit == null) return; // stop
-  
-    // récupérer l'url
-    const url = window.location.href;
-    console.log(url);
+    //page accueil
 
   
-    // transforme l'url pour pouvoir faire des recherches dessus
-    const urltransform = new URLSearchParams(url);
+  const url='http://localhost:3000/';
+    fetch(url+"api/teddies")
+    .then(function(res) {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then(function(data){
+      console.log(data);
+      let resultat='';
+      for(i=0;i<data.length;i++){
+        console.log(`${data[i].imageUrl}`);
+        resultat+= `<div class="leNorbert">
+          <div class="image"><img src="${data[i].imageUrl}" alt="${+data[i].name}"><a href="produit.html"></a></div>
+          <div class="letitre"><h4> ${data[i].name}</h4>
+          <p>${data[i].description}</p>
+          <p>${data[i].price}</p></div>
+          <div class="boutons">
+          <a href="produit.html?id=${data[i]._id}">Plus de details</a></div></div>`;
+      }
+    document.getElementById("ourson").innerHTML = resultat;   
 
-
-      // récupérer l'id
-    const idrecup = urltransform.searchParams.get("id");
+    })
   
-    // appeler l'api
-    fetch("http://localhost:3000/api/cameras'+liste[i]._id");
-  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
