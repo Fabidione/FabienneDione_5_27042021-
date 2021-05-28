@@ -95,11 +95,7 @@ footer {
   object-fit: contain;
   text-align: center; }
 
-.leNorbert,
-.lArnold,
-.leLenny,
-.leGustav,
-.leGarfunkel {
+.leNorbert {
   display: flex;
   flex-direction: column;
   border: 1px solid #f1ebf2;
@@ -116,25 +112,30 @@ footer {
   justify-content: center;
   margin: 70px 0px 70px; }
 
-.boutons {
+.bouton {
   display: flex;
   justify-content: center; }
-
-.bouton {
-  color: white;
-  background-color: #9e4592;
-  padding: 20px;
-  border-radius: 20px; }
+  .bouton a {
+    color: white;
+    background-color: #9e4592;
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none; }
 
 .letitre {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 60px;
+  margin-right: 60px; }
+
+select,
+label {
+  margin-left: 60px;
   margin-right: 60px; }
 
 select {
-  margin-bottom: 30px; }
+  margin-bottom: 50px; }
 
 .histoire {
   text-align: center;
@@ -221,6 +222,9 @@ select {
 /* style page recap*/
 .presentation {
   text-align: center; }
+  @media (max-width: 800px) {
+    .presentation {
+      margin-left: 30px; } }
 
 .produit img {
   width: 60%;
@@ -229,33 +233,9 @@ select {
   border-radius: 20px 0px 0px 20px; }
 
 @media (max-width: 600px) {
-  .Norbert,
-  .Arnold,
-  .Lenny,
-  .Gustav,
-  .Garfunkel {
-    margin-right: 20px; } }
-.Norbert a, .Norbert a, .Norbert a, .Norbert a, .Norbert a,
-.Arnold a,
-.Arnold a,
-.Arnold a,
-.Arnold a,
-.Arnold a,
-.Lenny a,
-.Lenny a,
-.Lenny a,
-.Lenny a,
-.Lenny a,
-.Gustav a,
-.Gustav a,
-.Gustav a,
-.Gustav a,
-.Gustav a,
-.Garfunkel a,
-.Garfunkel a,
-.Garfunkel a,
-.Garfunkel a,
-.Garfunkel a {
+  .leNorbert {
+    margin-right: 30px; } }
+.leNorbert img {
   display: flex;
   flex-direction: row;
   border: 1px solid #f1ebf2;
@@ -264,6 +244,12 @@ select {
   background-color: #f1ebf2;
   border-radius: 20px;
   text-decoration: none; }
+
+section {
+  margin-right: 20px; }
+  @media (max-width: 500px) {
+    section {
+      margin-right: 30px; } }
 
 .titre {
   display: flex;
