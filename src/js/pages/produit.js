@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for(i=0;i<data.colors.length;i++){
         resultat+=`<option value="${data.colors[i]}">${data.colors[i]}</option>`;
         }
-        resultat+=`</select><div class="boutons">
+        resultat+=`</select><div class="bouton">
       <a href="panier.html?id=${data._id}">Ajouter au panier</a></div></div>`;
         
       document.getElementById("oursonchoice").innerHTML = resultat;   

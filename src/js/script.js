@@ -18,7 +18,7 @@
           <div class="letitre"><h4> ${data[i].name}</h4>
           <p>${data[i].description}</p>
           <p>${data[i].price}</p></div>
-          <div class="boutons">
+          <div class="bouton">
           <a href="produit.html?id=${data[i]._id}">Plus de details</a></div></div>`;
       }
     document.getElementById("ourson").innerHTML = resultat;   
