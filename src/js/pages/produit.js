@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }"><a href="produit.html"></a></div>
       <div class="letitre"><h4> ${data.name}</h4>
       <p>${data.description}</p>
-      <p>${data.price / 100},00€</p></div>
+      <p>${data.price / 100}€</p></div>
       <label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
       <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
       <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(choix);
           //Récupération des valeurs du formulaire:les donnes qu'on veut envoyer au panier//
           const optionproduit = {
-            idproduit: data._id,
             nomproduit: data.name,
             prixproduit: data.price,
             quantiteproduit: choix,
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
           //stocker la recuperation des valeurs du formulaire dans le local storage//
           //declarer une variable dans laquelle on met les keys et les values//convertir json en js avec parse
           let produitenregistre = JSON.parse(localStorage.getItem("produit"));
-          console.log(produitenregistre);
 
           //fonction Fenêtre popup
           const popupconfirmation = () => {
@@ -85,20 +83,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           };
 
+          //fonction ajouter un produit selectionné dans le local storage
+          const ajoutproduitlocalstorage = () => {
+            //ajout dans le tableau de l'objet avec les values choisi par l'utilisateur//
+            produitenregistre.push(optionproduit);
+            //transformation format json et l'envoyer dans la key produit localstorage//
+            localStorage.setItem("produit", JSON.stringify(produitenregistre));
+          };
+
           // s'il y a des prdts enregistrés dans le local storage
           if (produitenregistre) {
-            produitenregistre.push(optionproduit);
-            localStorage.setItem("produit", JSON.stringify(produitenregistre));
-            console.log(produitenregistre);
+            ajoutproduitlocalstorage();
             popupconfirmation();
           }
 
           // s'il n'y a pas des prdts enregistrés dans le local storage
           else {
             produitenregistre = [];
-            produitenregistre.push(optionproduit);
-            localStorage.setItem("produit", JSON.stringify(produitenregistre));
-            console.log(produitenregistre);
+            ajoutproduitlocalstorage();
             popupconfirmation();
           }
         });
