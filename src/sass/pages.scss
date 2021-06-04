@@ -63,13 +63,25 @@ select {
   text-align: center;
   padding: 40px 20px;
 }
-/*style page produit*/
 
 /*style page panier*/
 .intro {
   text-align: center;
 }
-.tableau {
+#container-produits-panier {
+  margin: 40px;
+}
+.container-recap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.article,
+.quantite,
+.prixunit {
+  margin-bottom: 40px;
+}
+.formulaire {
   border: 1px solid $backgroundcolor;
   display: flex;
   justify-content: center;
@@ -115,7 +127,6 @@ select {
   color: $colorwhite;
   background-color: $violetfonce;
 }
-/*style page panier*/
 
 /* style page recap*/
 .texte {
@@ -143,4 +154,3 @@ select {
     margin-right: 30px;
   }
 }
-/* style page recap*/
