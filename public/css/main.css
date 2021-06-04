@@ -141,12 +141,24 @@ select {
   text-align: center;
   padding: 40px 20px; }
 
-/*style page produit*/
 /*style page panier*/
 .intro {
   text-align: center; }
 
-.tableau {
+#container-produits-panier {
+  margin: 40px; }
+
+.container-recap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.article,
+.quantite,
+.prixunit {
+  margin-bottom: 40px; }
+
+.formulaire {
   border: 1px solid #f1ebf2;
   display: flex;
   justify-content: center;
@@ -156,7 +168,7 @@ select {
   background-color: #f1ebf2;
   border-radius: 20px; }
   @media (max-width: 340px) {
-    .tableau {
+    .formulaire {
       padding: 10px; } }
 
 .formulaire {
@@ -192,7 +204,6 @@ select {
   color: white;
   background-color: #9e4592; }
 
-/*style page panier*/
 /* style page recap*/
 .texte {
   border: 1px solid #f1ebf2;
@@ -219,7 +230,6 @@ select {
     .texte2 {
       margin-right: 30px; } }
 
-/* style page recap*/
 .presentation {
   text-align: center; }
   @media (max-width: 800px) {
