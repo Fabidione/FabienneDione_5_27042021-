@@ -1,49 +1,109 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const produit = document.querySelector("body.produit");
-  
-    if (produit == null) return; // stop
-  
-    // récupérer l'url
-    const url = window.location.search;
+  const produit = document.querySelector("body.produit");
 
-    // transforme l'url pour pouvoir faire des recherches dessus
-    const urltransform = new URLSearchParams(url);
+  if (produit == null) return; // stop
 
-    // récupérer l'id
-    const idrecup = urltransform.get("id");
+  // récupérer l'url
+  const url = window.location.search;
 
-     if(idrecup){
-       console.log('ok');
-       const url='http://localhost:3000/';
-      fetch(`${url}api/teddies/${idrecup}`)
-      
-      .then(function(res) {
+  // transforme l'url pour pouvoir faire des recherches dessus
+  const urltransform = new URLSearchParams(url);
+
+  // récupérer l'id
+  const idrecup = urltransform.get("id");
+
+  if (idrecup) {
+    const lurl = "http://localhost:3000/api/teddies";
+    fetch(`${lurl}/${idrecup}`)
+      .then(function (res) {
         if (res.ok) {
-         return res.json();
+          return res.json();
         }
       })
-      .then(function(data){
+      .then(function (data) {
         console.log(data);
-      let resultat= `<div class="leNorbert">
-      <div class="image"><img src="${data.imageUrl}" alt="${data.name}"><a href="produit.html"></a></div>
+        let resultat = `<div class="leNorbert">
+      <div class="image"><img src="${data.imageUrl}" alt="${
+          data.name
+        }"><a href="produit.html"></a></div>
       <div class="letitre"><h4> ${data.name}</h4>
       <p>${data.description}</p>
-      <p>${data.price}</p></div>
+      <p>${data.price / 100},00€</p></div>
+      <label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>
       <label for="color-select">Personnalisez sa couleur :</label>
       <select name="color" id="color-select">
       <option value="choix">--Choisissez votre couleur--</option>`;
-        for(i=0;i<data.colors.length;i++){
-        resultat+=`<option value="${data.colors[i]}">${data.colors[i]}</option>`;
+        for (let i = 0; i < data.colors.length; i++) {
+          resultat += `<option value="${data.colors[i]}">${data.colors[i]}</option>`;
         }
-        resultat+=`</select><div class="bouton">
+        resultat += `</select><div id="bouton">
       <a href="panier.html?id=${data._id}">Ajouter au panier</a></div></div>`;
-        
-      document.getElementById("oursonchoice").innerHTML = resultat;   
-     })
-    }
-     else{
-       console.log('ko');
-     }
-    });
 
-  
+        document.getElementById("oursonchoice").innerHTML = resultat;
+
+        //-------------------------------------la gestion du panier------------------------------------//
+
+        //selection du bouton envoyer au panier//
+        const envoyeraupanier = document.querySelector("#bouton");
+        console.log(envoyeraupanier);
+
+        //ecouter le bouton et Envoyer le Panier //
+        envoyeraupanier.addEventListener("click", (event) => {
+          event.preventDefault();
+          //recuperation des donnees selectionnees par l'utilisateur//
+          const idquantite = document.querySelector("#choixquantite");
+          console.log(idquantite);
+          const choix = idquantite.value;
+          console.log(choix);
+          //Récupération des valeurs du formulaire:les donnes qu'on veut envoyer au panier//
+          const optionproduit = {
+            idproduit: data._id,
+            nomproduit: data.name,
+            prixproduit: data.price,
+            quantiteproduit: choix,
+          };
+          console.log(optionproduit);
+
+          //---------------------------------le local storage---------------------------------//
+
+          //stocker la recuperation des valeurs du formulaire dans le local storage//
+          //declarer une variable dans laquelle on met les keys et les values//convertir json en js avec parse
+          let produitenregistre = JSON.parse(localStorage.getItem("produit"));
+          console.log(produitenregistre);
+
+          //fonction Fenêtre popup
+          const popupconfirmation = () => {
+            if (
+              window.confirm(`${data.name} quantité: ${choix} a bien été ajouté au panier
+            Consulter le panier OK ou revenir à l'accueil ANNULER`)
+            ) {
+              window.location.href = "panier.html";
+            } else {
+              window.location.href = "index.html";
+            }
+          };
+
+          // s'il y a des prdts enregistrés dans le local storage
+          if (produitenregistre) {
+            produitenregistre.push(optionproduit);
+            localStorage.setItem("produit", JSON.stringify(produitenregistre));
+            console.log(produitenregistre);
+            popupconfirmation();
+          }
+
+          // s'il n'y a pas des prdts enregistrés dans le local storage
+          else {
+            produitenregistre = [];
+            produitenregistre.push(optionproduit);
+            localStorage.setItem("produit", JSON.stringify(produitenregistre));
+            console.log(produitenregistre);
+            popupconfirmation();
+          }
+        });
+      });
+  } else {
+    console.log("ko");
+  }
+});
