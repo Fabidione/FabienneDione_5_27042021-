@@ -58,25 +58,20 @@
   <!--intitule-->
 
   <!--tableau-->
-    <h2 class="tableau-titre">Votre commande</h2>
-
-    <section class="container">
-      <article class="well form-inline pull-left col-lg-5">
-          <table id="tableau" class="table">
-              <thead>
-                  <tr>
-                      <th>Code</th>
-                      <th>Qte</th>
-                      <th>Prix unitaire</th>
-                      <th>Prix total</th>
-                      <th>Supprimer</th>
-                  </tr>
-              </thead>
-          </table>
-          <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
-          <label id = "nbreLignes" hidden>0</label>
-      </article>
-  </section>
+  <div id="container-produits-panier">
+    <h2>Votre commande</h2>
+    <div class="container-recap">
+      <div class="article">Article</div>
+      <div class="quantite">Quantité</div>
+      <div class="prixunit">Prix unitaire</div>
+      <div>Supprimer l'article</div>
+    </div>
+    <div class="container-total">
+      <div>Prix total</div>
+      <div>Vider le panier</div>
+    </div>
+  </div>
+         
   <!--tableau-->
 
   <!--formulaire-->
