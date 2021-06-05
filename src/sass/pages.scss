@@ -68,8 +68,19 @@ select {
 .intro {
   text-align: center;
 }
+.commande-titre {
+  padding: 40px 40px 0px 40px;
+  margin: 40px 40px 0px 40px;
+  border: 1px solid $backgroundcolor;
+  background-color: $backgroundcolor;
+  border-radius: 20px 20px 0px 0px;
+}
 #container-produits-panier {
-  margin: 40px;
+  margin: 0px 40px 40px 40px;
+  padding: 40px;
+  border: 1px solid $backgroundcolor;
+  background-color: $backgroundcolor;
+  border-radius: 0px 0px 20px 20px;
 }
 .container-recap {
   display: flex;
@@ -90,15 +101,14 @@ select {
   padding: 30px;
   background-color: $backgroundcolor;
   border-radius: 20px;
+  border: 4px solid $colorwhite;
+  padding: 30px;
+  margin-top: 60px;
   @media (max-width: 340px) {
     padding: 10px;
   }
 }
-.formulaire {
-  border: 4px solid $colorwhite;
-  padding: 30px;
-  margin-top: 60px;
-}
+
 .prenom,
 .nom,
 .adresse,
