@@ -1,20 +1,18 @@
+import { url, renderprice } from "../global.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const produit = document.querySelector("body.produit");
 
   if (produit == null) return; // stop
 
-  // récupérer l'url
-  const url = window.location.search;
-
   // transforme l'url pour pouvoir faire des recherches dessus
-  const urltransform = new URLSearchParams(url);
+  const urltransform = new URLSearchParams(window.location.search);
 
   // récupérer l'id
   const idrecup = urltransform.get("id");
 
   if (idrecup) {
-    const lurl = "http://localhost:3000/api/teddies";
-    fetch(`${lurl}/${idrecup}`)
+    fetch(`${url}/${idrecup}`)
       .then(function (res) {
         if (res.ok) {
           return res.json();
@@ -28,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }"><a href="produit.html"></a></div>
       <div class="letitre"><h4> ${data.name}</h4>
       <p>${data.description}</p>
-      <p>${data.price / 100}€</p></div>
+      <p>${renderprice(data.price)}</p></div>
       <label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
       <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
       <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>

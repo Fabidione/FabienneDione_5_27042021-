@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let structureproduitpanier = [];
 
   //si le panier est vide//
-  if (produitenregistre === null) {
+  if (produitenregistre === null || produitenregistre == 0) {
     const paniervide = `
   <div class="container-panier-vide">
     <div> Le panier est vide </div>
@@ -31,10 +31,37 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="article">${produitenregistre[k].nomproduit}</div>
         <div class="quantite">${produitenregistre[k].quantiteproduit}</div>
         <div class="prixunit">${produitenregistre[k].prixproduit / 100} €</div>
-        <div>Supprimer l'article</div>
+        <div><button class="btn-supprimer"> Supprimer l'article</button></div>
       </div>`;
       document.getElementById("container-produits-panier").innerHTML =
         structureproduitpanier;
     }
   }
+
+  //-----------------------------gestion du bouton supprimer l'article------------------------//
+  //ajout des references du boutton//
+  let btnSupprimer = document.querySelectorAll(".btn-supprimer");
+  console.log(btnSupprimer);
+
+  for (let l = 0; l < btnSupprimer.length; l++) {
+    btnSupprimer[l].addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let nomSupprimer = produitenregistre[l].nomproduit;
+      console.log(nomSupprimer);
+
+      // avec la methode filter je selectionne les elements à garder et je supprime l'element où le bouton supprime a été cliqué//
+      produitenregistre = produitenregistre.filter(
+        (el) => el.nomproduit !== nomSupprimer
+      );
+      //envoie la variable dans le local storage
+      //transformation format json et l'envoyer dans la key produit localstorage//
+      localStorage.setItem("produit", JSON.stringify(produitenregistre));
+
+      //alert pour avertir que le produit a été supprimé du panier//
+      window.location.href = "panier.html";
+    });
+  }
+
+  //------------------------------ajout bouton pour vider tout le panier---------------------//
 });
