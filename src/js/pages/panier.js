@@ -63,6 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //----------------------------------calcul prix total-----------------------//
+  let sommeTotal = 0;
+
+  produitenregistre.forEach((produitenregistre) => {
+    sommeTotal +=
+      (produitenregistre.prixproduit * produitenregistre.quantiteproduit) / 100;
+  });
+  console.log(sommeTotal);
+
+  // le code html du prix total
+  const affichagePrix = `<div class="container-total">
+  <div class="prix-total">Prix total : ${sommeTotal} €</div>
+  </div>`;
+  //insertion bouton dans html//
+  positionelement.insertAdjacentHTML("beforeend", affichagePrix);
+
   //------------------------------ajout bouton pour vider tout le panier---------------------//
   //code html du bouton//
   const btnViderPanierHtml = `
@@ -76,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Suppression de la key produit//
   btnViderPanier.addEventListener("click", (event) => {
-    event.preventDefault;
+    event.preventDefault();
     //removeitem pour vider le local storage//
     localStorage.removeItem("produit");
     //alert panier vide//
@@ -85,5 +101,5 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "panier.html";
   });
 
-  //----------------------------------calcul prix total-----------------------//
+  //-------------------------------------formulaire---------------------------
 });
