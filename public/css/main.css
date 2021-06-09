@@ -169,6 +169,13 @@ select {
 .prixunit {
   margin-bottom: 40px; }
 
+.btnviderpanier {
+  border-radius: 20px;
+  color: white;
+  background-color: #9e4592;
+  padding: 20px;
+  margin-top: 30px; }
+
 .formulaire {
   border: 1px solid #f1ebf2;
   display: flex;
