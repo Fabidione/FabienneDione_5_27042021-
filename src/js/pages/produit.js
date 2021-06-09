@@ -69,18 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
           //declarer une variable dans laquelle on met les keys et les values//convertir json en js avec parse
           let produitenregistre = JSON.parse(localStorage.getItem("produit"));
 
-          //fonction Fenêtre popup
-          const popupconfirmation = () => {
-            if (
-              window.confirm(`${data.name} quantité: ${choix} a bien été ajouté au panier
-            Consulter le panier OK ou revenir à l'accueil ANNULER`)
-            ) {
-              window.location.href = "panier.html";
-            } else {
-              window.location.href = "index.html";
-            }
-          };
-
           //fonction ajouter un produit selectionné dans le local storage
           const ajoutproduitlocalstorage = () => {
             //ajout dans le tableau de l'objet avec les values choisi par l'utilisateur//
@@ -92,14 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
           // s'il y a des prdts enregistrés dans le local storage
           if (produitenregistre) {
             ajoutproduitlocalstorage();
-            popupconfirmation();
           }
 
           // s'il n'y a pas des prdts enregistrés dans le local storage
           else {
             produitenregistre = [];
             ajoutproduitlocalstorage();
-            popupconfirmation();
           }
         });
       });
