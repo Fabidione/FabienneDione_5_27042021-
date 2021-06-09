@@ -92,6 +92,13 @@ select {
 .prixunit {
   margin-bottom: 40px;
 }
+.btnviderpanier {
+  border-radius: 20px;
+  color: $colorwhite;
+  background-color: $violetfonce;
+  padding: 20px;
+  margin-top: 30px;
+}
 .formulaire {
   border: 1px solid $backgroundcolor;
   display: flex;
