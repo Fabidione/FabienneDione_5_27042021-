@@ -102,4 +102,112 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //-------------------------------------formulaire---------------------------
+
+  const afficherFormulaireHtml = () => {
+    //selection element du dom pour le positionnement du formulaire//
+    const positionElement2 = document.querySelector(
+      "#container-produits-panier"
+    );
+    const structureFormulaire = `
+    <div id="formulaire">    
+      <h3>Pour valider votre commande merci de remplir ce formulaire :</h3>
+      <form action="#">
+        <div class="prenom">
+          <label for="prenom"> 
+            Votre prénom
+          </label>
+          <input type="text" name ="prenom" id="prenom" required />
+        </div>
+        <div class="nom">
+          <label for="nom"> 
+            Nom
+          </label>
+          <input type="text" name="nom" id="nom" required />
+        </div>
+        <div class="adresse">
+          <label for="adresse">
+            Votre adresse 
+          </label>
+          <input type="text" name="adresse" id="adresse" required />
+        </div>
+        <div class="ville">
+          <label for="ville">
+            Votre ville
+          </label>
+          <input type="text" name="ville" id="ville" required />
+        </div>
+        <div class="email">
+          <label for="email">
+            Votre adresse email
+          </label>
+          <input type="text" name="email"  id="email" required />
+        </div>
+        <div class="validercom">
+          <a href="recap.html">
+            <button id="envoyerformulaire" type="submit" name="envoyerFormulaire">
+              Valider votre commande
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>`;
+
+    //injection html//
+    positionElement2.insertAdjacentHTML("afterend", structureFormulaire);
+  };
+  //affichage du formulaire//
+  afficherFormulaireHtml();
+
+  //selectionner bouton envoyer//
+  const btnEnvoyerFormulaire = document.querySelector("#envoyerformulaire");
+
+  // addeventlistener
+  btnEnvoyerFormulaire.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    //Récupérer valeurs du formulaire
+    const formulaireValues = {
+      prenom: document.querySelector("#prenom").value,
+      nom: document.querySelector("#nom").value,
+      adresse: document.querySelector("#adresse").value,
+      ville: document.querySelector("#ville").value,
+      email: document.querySelector("#email").value,
+    };
+
+    //mettre l'objet formulaire values dans le local storage
+    localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+
+    // mettre les  valeurs du formulaire et mettre les produits selectionnés dans un objet à envoyer au serveur//
+    const aEnvoyer = {
+      produitenregistre,
+      formulaireValues,
+    };
+    console.log(aEnvoyer);
+  });
+
+  // --------------------------------mettre le contenu du local storage dans les champs du formulaire----------------------//
+  //prendre la key dans le local storage et la mettre dans une variable
+  const dataLocalStorage = localStorage.getItem("formulaireValues");
+
+  //convertir la chaine de caractere en objet js
+  const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
+  console.log(dataLocalStorageObjet);
+
+  //mettre les values du localstorage dans les champs du formulaire//
+  document
+    .querySelector("#prenom")
+    .setAttribute("value", dataLocalStorageObjet.prenom);
+  document
+    .querySelector("#nom")
+    .setAttribute("value", dataLocalStorageObjet.nom);
+  document
+    .querySelector("#adresse")
+    .setAttribute("value", dataLocalStorageObjet.adresse);
+  document
+    .querySelector("#ville")
+    .setAttribute("value", dataLocalStorageObjet.ville);
+  document
+    .querySelector("#email")
+    .setAttribute("value", dataLocalStorageObjet.email);
+  console.log(dataLocalStorageObjet);
 });
