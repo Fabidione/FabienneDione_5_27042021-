@@ -136,6 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
           </label>
           <input type="text" name="ville" id="ville" required />
         </div>
+        <div class="codepostal">
+          <label for="codepostal">
+          Code postal
+          </label>
+          <input type="text" name="codepostal" id="codepostal" required />
+        </div>
         <div class="email">
           <label for="email">
             Votre adresse email
@@ -171,11 +177,115 @@ document.addEventListener("DOMContentLoaded", function () {
       nom: document.querySelector("#nom").value,
       adresse: document.querySelector("#adresse").value,
       ville: document.querySelector("#ville").value,
+      codepostal: document.querySelector("#codepostal").value,
       email: document.querySelector("#email").value,
     };
 
-    //mettre l'objet formulaire values dans le local storage
-    localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+    //--------------------------------gestion validation formulaire----------------------//
+    //texte d'alerte en cas d'anomalies//
+    const textAlert = (value) => {
+      return `${value} : Les chiffres et symboles ne sont pas autorisés \n Ne pas dépasser 3O caractéres, minimun 3 caractéres`;
+    };
+
+    //regex pour prenom nom //
+    const regExPrenomNom = (value) => {
+      return /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/.test(value);
+    };
+    //regex pour ville //
+    const regExVille = (value) => {
+      return /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/.test(value);
+    };
+    //regex pour code postale//
+    const regExCodePostal = (value) => {
+      return /^[0-9]{5}$/.test(value);
+    };
+    //regex pour email//
+    const regExEmail = (value) => {
+      return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        value
+      );
+    };
+    //regex pour adresse//
+    const regExAdresse = (value) => {
+      return /^[A-Za-z0-9\s]{5,50}$/.test(value);
+    };
+    //controle Validité du prenom//
+    function prenomControl() {
+      const lePrenom = formulaireValues.prenom;
+      if (regExPrenomNom(lePrenom)) {
+        return true;
+      } else {
+        alert(textAlert("Prenom"));
+        return false;
+      }
+    }
+    //controle Validité du nom//
+    function nomControl() {
+      const leNom = formulaireValues.nom;
+      if (regExPrenomNom(leNom)) {
+        return true;
+      } else {
+        alert(textAlert("nom"));
+        return false;
+      }
+    }
+    //controle Validité du code postale//
+    function codePostalControl() {
+      const lecodePostal = formulaireValues.codepostal;
+      if (regExCodePostal(lecodePostal)) {
+        return true;
+      } else {
+        alert("Le code postal doit contenir uniquement 5 chiffres");
+        return false;
+      }
+    }
+    //controle Validité de l'email//
+    function emailControl() {
+      const lemail = formulaireValues.email;
+      if (regExEmail(lemail)) {
+        return true;
+      } else {
+        alert("Votre email n'est pas valide");
+        return false;
+      }
+    }
+    //controle Validité adresse//
+    function adresseControl() {
+      const ladresse = formulaireValues.adresse;
+      if (regExAdresse(ladresse)) {
+        return true;
+      } else {
+        alert("Votre adresse n'est pas valide");
+        return false;
+      }
+    }
+    //controle Validité du ville//
+    function villeControl() {
+      const laVille = formulaireValues.ville;
+      if (regExVille(laVille)) {
+        return true;
+      } else {
+        alert(textAlert("ville"));
+        return false;
+      }
+    }
+    //----------------------------condition pour envoyer le formulaire------------------//
+    if (
+      prenomControl() &&
+      nomControl() &&
+      codePostalControl() &&
+      emailControl() &&
+      adresseControl() &&
+      villeControl()
+    ) {
+      //mettre l'objet formulaire values dans le local storage
+      localStorage.setItem(
+        "formulaireValues",
+        JSON.stringify(formulaireValues)
+      );
+    } else {
+      alert("Veuillez bien remplir le formulaire");
+    }
 
     // mettre les  valeurs du formulaire et mettre les produits selectionnés dans un objet à envoyer au serveur//
     const aEnvoyer = {
@@ -183,6 +293,16 @@ document.addEventListener("DOMContentLoaded", function () {
       formulaireValues,
     };
     console.log(aEnvoyer);
+
+    //envoie de l'objet "a envoyer" vers le serveur//
+    const promise01 = fetch("h​ttp://localhost:3000/api/teddies/order", {
+      method: "POST",
+      body: JSON.stringify(aEnvoyer),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(promise01);
   });
 
   // --------------------------------mettre le contenu du local storage dans les champs du formulaire----------------------//
@@ -191,9 +311,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //convertir la chaine de caractere en objet js
   const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
-  console.log(dataLocalStorageObjet);
 
-  //mettre les values du localstorage dans les champs du formulaire//
+  // mettre les values du localstorage dans les champs du formulaire//
   document
     .querySelector("#prenom")
     .setAttribute("value", dataLocalStorageObjet.prenom);
@@ -207,7 +326,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector("#ville")
     .setAttribute("value", dataLocalStorageObjet.ville);
   document
+    .querySelector("#codepostal")
+    .setAttribute("value", dataLocalStorageObjet.codepostal);
+  document
     .querySelector("#email")
     .setAttribute("value", dataLocalStorageObjet.email);
   console.log(dataLocalStorageObjet);
+
+  //------------------------------------------------
 });
