@@ -1,3 +1,5 @@
+import { url, renderprice } from "../global.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const panier = document.querySelector("body.panier");
 
@@ -195,10 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const regExVille = (value) => {
       return /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/.test(value);
     };
-    //regex pour code postale//
-    const regExCodePostal = (value) => {
-      return /^[0-9]{5}$/.test(value);
-    };
+
     //regex pour email//
     const regExEmail = (value) => {
       return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
@@ -229,16 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
       }
     }
-    //controle Validité du code postale//
-    function codePostalControl() {
-      const lecodePostal = formulaireValues.codepostal;
-      if (regExCodePostal(lecodePostal)) {
-        return true;
-      } else {
-        alert("Le code postal doit contenir uniquement 5 chiffres");
-        return false;
-      }
-    }
+
     //controle Validité de l'email//
     function emailControl() {
       const lemail = formulaireValues.email;
@@ -273,7 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (
       prenomControl() &&
       nomControl() &&
-      codePostalControl() &&
       emailControl() &&
       adresseControl() &&
       villeControl()
@@ -295,14 +284,27 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(aEnvoyer);
 
     //envoie de l'objet "a envoyer" vers le serveur//
-    const promise01 = fetch("h​ttp://localhost:3000/api/teddies/order", {
-      method: "POST",
-      body: JSON.stringify(aEnvoyer),
-      headers: {
-        "Content-Type": "application/json",
+    const body = JSON.stringify({
+      contact: {
+        firstName: formulaireValues.prenom,
+        lastName: formulaireValues.nom,
+        address: formulaireValues.adresse,
+        city: formulaireValues.ville,
+        email: formulaireValues.email,
       },
+      products: aEnvoyer.produitenregistre,
     });
-    console.log(promise01);
+
+    console.log(body);
+    fetch(`${url}/order`, {
+      method: "POST",
+      body: body,
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
   });
 
   // --------------------------------mettre le contenu du local storage dans les champs du formulaire----------------------//

@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(choix);
           //Récupération des valeurs du formulaire:les donnes qu'on veut envoyer au panier//
           const optionproduit = {
+            idproduit: data._id,
             nomproduit: data.name,
             prixproduit: data.price,
             quantiteproduit: choix,
