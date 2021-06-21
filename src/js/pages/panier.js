@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //declarer une variable dans laquelle on met les keys et les values//convertir json en js avec parse
   let produitenregistre = JSON.parse(localStorage.getItem("produit"));
   console.log(produitenregistre);
-
+  let tabproduit = [];
+  for (let t = 0; t < produitenregistre.length; t++) {
+    tabproduit[t] = produitenregistre[t]._id;
+  }
+  console.log(tabproduit);
   //----------------------------affichage des produits du panier------------//
   // selection de la claisse où je vais injecter le code html//
   const positionelement = document.querySelector("#container-produits-panier");
@@ -30,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         structureproduitpanier +
         `
       <div class="container-recap">
-        <div class="article">${produitenregistre[k].nomproduit}</div>
+        <div class="article">${produitenregistre[k].name}</div>
         <div class="quantite">${produitenregistre[k].quantiteproduit}</div>
-        <div class="prixunit">${produitenregistre[k].prixproduit / 100} €</div>
+        <div class="prixunit">${produitenregistre[k].price / 100} €</div>
         <div><button class="btn-supprimer"> Supprimer l'article</button></div>
       </div>`;
       document.getElementById("container-produits-panier").innerHTML =
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btnSupprimer[l].addEventListener("click", (event) => {
       event.preventDefault();
 
-      let nomSupprimer = produitenregistre[l].nomproduit;
+      let nomSupprimer = produitenregistre[l].name;
       console.log(nomSupprimer);
 
       // avec la methode filter je selectionne les elements à garder et je supprime l'element où le bouton supprime a été cliqué//
@@ -70,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   produitenregistre.forEach((produitenregistre) => {
     sommeTotal +=
-      (produitenregistre.prixproduit * produitenregistre.quantiteproduit) / 100;
+      (produitenregistre.price * produitenregistre.quantiteproduit) / 100;
   });
   console.log(sommeTotal);
 
@@ -292,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
         city: formulaireValues.ville,
         email: formulaireValues.email,
       },
-      products: aEnvoyer.produitenregistre,
+      products: tabproduit,
     });
 
     console.log(body);
@@ -315,25 +319,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
 
   // mettre les values du localstorage dans les champs du formulaire//
-  document
-    .querySelector("#prenom")
-    .setAttribute("value", dataLocalStorageObjet.prenom);
-  document
-    .querySelector("#nom")
-    .setAttribute("value", dataLocalStorageObjet.nom);
-  document
-    .querySelector("#adresse")
-    .setAttribute("value", dataLocalStorageObjet.adresse);
-  document
-    .querySelector("#ville")
-    .setAttribute("value", dataLocalStorageObjet.ville);
-  document
-    .querySelector("#codepostal")
-    .setAttribute("value", dataLocalStorageObjet.codepostal);
-  document
-    .querySelector("#email")
-    .setAttribute("value", dataLocalStorageObjet.email);
-  console.log(dataLocalStorageObjet);
+  if (dataLocalStorageObjet == null) {
+  } else {
+    document
+      .querySelector("#prenom")
+      .setAttribute("value", dataLocalStorageObjet.prenom);
+    document
+      .querySelector("#nom")
+      .setAttribute("value", dataLocalStorageObjet.nom);
+    document
+      .querySelector("#adresse")
+      .setAttribute("value", dataLocalStorageObjet.adresse);
+    document
+      .querySelector("#ville")
+      .setAttribute("value", dataLocalStorageObjet.ville);
+    document
+      .querySelector("#codepostal")
+      .setAttribute("value", dataLocalStorageObjet.codepostal);
+    document
+      .querySelector("#email")
+      .setAttribute("value", dataLocalStorageObjet.email);
+    console.log(dataLocalStorageObjet);
+  }
 
   //------------------------------------------------
 });
