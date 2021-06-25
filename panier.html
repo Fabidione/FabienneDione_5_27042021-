@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Orinoco-panier</title>
-    <link rel="stylesheet" href="./public/css/main.css"/>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-      crossorigin="anonymous"
-    />  
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="./src/js/script.js"defer></script>
-    <form action="panier.html" method="POST"></form>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Orinoco-panier</title>
+  <link rel="stylesheet" href="./public/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" src="./src/js/script.js" defer></script>
+  <form action="panier.html" method="POST"></form>
 
 
 
-    <!-- Primary Meta Tags -->
+  <!-- Primary Meta Tags -->
   <title>Orinoco-panier</title>
   <meta name="title" content="Orinoco-panier">
   <meta name="description" content="Orinoco est un site de vente d'ours en peluche">
@@ -36,72 +34,51 @@
   <meta property="og:title" content="Orinoco-panier">
   <meta property="og:description" content="Orinoco est un site de vente d'ours en peluche">
 
-  </head>
+</head>
 
-  <body class="panier">
+<body class="panier">
   <!--header-->
-    <header>
-      <div class="head">
-        <div class="logo">
-          <img src="backend/images/logo.png" alt="logo">
-        </div>
-        <div class="navigation">
-          <a href="panier.html">Votre panier</a>
-        </div>
+  <header>
+    <div class="head">
+      <div class="logo">
+        <img src="backend/images/logo.png" alt="logo">
       </div>
-    </header>
+      <div class="navigation">
+        <a href="panier.html">Votre panier</a>
+      </div>
+    </div>
+  </header>
   <!--header-->
-
-  <!--intitule-->
-  <div class="intro">
-    <h1>Oribears</h1>
-    <p>Récapitulatif de votre panier</p>
-  </div>
-  <!--intitule-->
 
   <!--tableau-->
-  <h2 class="commande-titre">Votre commande</h2>
 
   <div id="container-produits-panier">
-    <div class="container-recap">
-      <div class="article"></div>
-      <div class="quantite"></div>
-      <div class="prixunit"></div>
-      <div></div>
-    </div>
-    <div id="container-total">
-      <div class="prix-total"></div>
-    </div>
+    <h1>Oribears</h1>
+    <h2 class="commande-titre">Votre commande</h2>
   </div>
-         
+
   <!--tableau-->
-
-  <!--formulaire-->
-    
-
-  <!--formulaire-->
 
   <!--retour accueil-->
   <div class="retour-accueil">
     <a href="index.html">
-      <input class="retour"
-        type="button"
-        value="Retour à l'accueil">
+      <input class="retour" type="button" value="Retour à l'accueil">
     </a>
   </div>
   <!--retour accueil-->
 
-<!--footer-->
-    <footer>
-      <div class="contact">
-        <i class="far fa-envelope"></i>
-        <a href="mailto:fabiennedione@gmail.com">Contact</a>
-      </div>
-      <div class="tel">
-        <i class="fas fa-phone-alt"></i>
-        <p>+33 8 09 34 56 73<br>Lun.au ven. 9h à 19h</p>
-      </div>
-    </footer>
   <!--footer-->
-  </body>
+  <footer>
+    <div class="contact">
+      <i class="far fa-envelope"></i>
+      <a href="mailto:fabiennedione@gmail.com">Contact</a>
+    </div>
+    <div class="tel">
+      <i class="fas fa-phone-alt"></i>
+      <p>+33 8 09 34 56 73<br>Lun.au ven. 9h à 19h</p>
+    </div>
+  </footer>
+  <!--footer-->
+</body>
+
 </html>
