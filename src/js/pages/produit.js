@@ -62,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             price: data.price,
             quantiteproduit: choix,
           };
-          console.log(optionproduit);
-
+          alert("Le produit a bien été ajouté au panier ")
           //---------------------------------le local storage---------------------------------//
 
           //stocker la recuperation des valeurs du formulaire dans le local storage//

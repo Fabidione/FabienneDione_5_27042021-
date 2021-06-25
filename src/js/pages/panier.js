@@ -26,22 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="container-panier-vide">
     <div> Le panier est vide </div>
   </div>`;
-    document.getElementById("container-produits-panier").innerHTML = paniervide;
+    positionelement.insertAdjacentHTML("beforeend", paniervide);
   } else {
     //si le panier n'est pas vide//
     for (let k = 0; k < produitenregistre.length; k++) {
       structureproduitpanier =
         structureproduitpanier +
-        `
-      <div class="container-recap">
+        `   
+        <div class="container-recap"> 
         <div class="article">${produitenregistre[k].name}</div>
         <div class="quantite">${produitenregistre[k].quantiteproduit}</div>
         <div class="prixunit">${produitenregistre[k].price / 100} €</div>
         <div><button class="btn-supprimer"> Supprimer l'article</button></div>
       </div>`;
-      document.getElementById("container-produits-panier").innerHTML =
-        structureproduitpanier;
     }
+    positionelement.insertAdjacentHTML("beforeend", structureproduitpanier);
   }
 
   //-----------------------------gestion du bouton supprimer l'article------------------------//
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // avec la methode filter je selectionne les elements à garder et je supprime l'element où le bouton supprime a été cliqué//
       produitenregistre = produitenregistre.filter(
-        (el) => el.nomproduit !== nomSupprimer
+        (el) => el.name !== nomSupprimer
       );
       //envoie la variable dans le local storage
       //transformation format json et l'envoyer dans la key produit localstorage//
@@ -142,12 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </label>
           <input type="text" name="ville" id="ville" required />
         </div>
-        <div class="codepostal">
-          <label for="codepostal">
-          Code postal
-          </label>
-          <input type="text" name="codepostal" id="codepostal" required />
-        </div>
         <div class="email">
           <label for="email">
             Votre adresse email
@@ -183,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
       nom: document.querySelector("#nom").value,
       adresse: document.querySelector("#adresse").value,
       ville: document.querySelector("#ville").value,
-      codepostal: document.querySelector("#codepostal").value,
       email: document.querySelector("#email").value,
     };
 
@@ -269,47 +261,78 @@ document.addEventListener("DOMContentLoaded", function () {
       nomControl() &&
       emailControl() &&
       adresseControl() &&
-      villeControl()
+      villeControl() &&
+      affichagePrix == 0
     ) {
       //mettre l'objet formulaire values dans le local storage
       localStorage.setItem(
         "formulaireValues",
         JSON.stringify(formulaireValues)
       );
+      //mettre le prix total dans le local storage
+      localStorage.setItem("sommeTotal", JSON.stringify(sommeTotal));
+
+      // mettre les  valeurs du formulaire et mettre les produits selectionnés dans un objet à envoyer au serveur//
+      const aEnvoyer = {
+        produitenregistre,
+        formulaireValues,
+        sommeTotal,
+      };
+      console.log(aEnvoyer);
+
+      //envoie de l'objet "a envoyer" vers le serveur//
+      const body = JSON.stringify({
+        contact: {
+          firstName: formulaireValues.prenom,
+          lastName: formulaireValues.nom,
+          address: formulaireValues.adresse,
+          city: formulaireValues.ville,
+          email: formulaireValues.email,
+        },
+        products: tabproduit,
+        orderId: produitenregistre._id,
+      });
+      envoiVersServer(body);
     } else {
       alert("Veuillez bien remplir le formulaire");
     }
-
-    // mettre les  valeurs du formulaire et mettre les produits selectionnés dans un objet à envoyer au serveur//
-    const aEnvoyer = {
-      produitenregistre,
-      formulaireValues,
-    };
-    console.log(aEnvoyer);
-
-    //envoie de l'objet "a envoyer" vers le serveur//
-    const body = JSON.stringify({
-      contact: {
-        firstName: formulaireValues.prenom,
-        lastName: formulaireValues.nom,
-        address: formulaireValues.adresse,
-        city: formulaireValues.ville,
-        email: formulaireValues.email,
-      },
-      products: tabproduit,
-    });
-
-    console.log(body);
-    fetch(`${url}/order`, {
+  });
+  function envoiVersServer(body) {
+    // envoie de l'objet "aEnvoyer" vers le serveur
+    const promise01 = fetch(`${url}/order`, {
       method: "POST",
       body: body,
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
-    })
-      .then((json) => console.log(json))
-      .catch((err) => console.log(err));
-  });
+    });
+    //pour voir le resultat du serveur dans la console//
+    promise01.then(async (response) => {
+      //si la promesse n'est pas résolu
+      try {
+        const contenu = await response.json();
+
+        if (response.ok) {
+          console.log(`resultat de response.ok : ${response.ok}`);
+
+          //recupérer l'id de la reponse du serveur
+          console.log("idResponse");
+          console.log(tabproduit);
+          //mettre l'id dans le local storage
+          localStorage.setItem("idResponse", JSON.stringify(tabproduit));
+
+          //aller vers la page confirmation commande//
+          window.location = "recap.html";
+        } else {
+          console.log(`response du serveur : ${response.status}`);
+        }
+      } catch (e) {
+        console.log("erreur qui vient du catch()");
+        console.log(e);
+        alert(`erreur qui vient du catch() ${e}`);
+      }
+    });
+  }
 
   // --------------------------------mettre le contenu du local storage dans les champs du formulaire----------------------//
   //prendre la key dans le local storage et la mettre dans une variable
@@ -333,9 +356,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document
       .querySelector("#ville")
       .setAttribute("value", dataLocalStorageObjet.ville);
-    document
-      .querySelector("#codepostal")
-      .setAttribute("value", dataLocalStorageObjet.codepostal);
     document
       .querySelector("#email")
       .setAttribute("value", dataLocalStorageObjet.email);
