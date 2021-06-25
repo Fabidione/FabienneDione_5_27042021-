@@ -85,26 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
   positionelement.insertAdjacentHTML("beforeend", affichagePrix);
 
   //------------------------------ajout bouton pour vider tout le panier---------------------//
-  //code html du bouton//
-  const btnViderPanierHtml = `
-  <button class="btnviderpanier">Vider le panier</button>`;
-
-  //insertion bouton dans html//
-  positionelement.insertAdjacentHTML("beforeend", btnViderPanierHtml);
-
-  //selection de la réference du bouton//
-  const btnViderPanier = document.querySelector(".btnviderpanier");
-
-  //Suppression de la key produit//
-  btnViderPanier.addEventListener("click", (event) => {
-    event.preventDefault();
-    //removeitem pour vider le local storage//
-    localStorage.removeItem("produit");
-    //alert panier vide//
-    alert("Le panier a été vidé");
-    //rechargement de la page //
-    window.location.href = "panier.html";
-  });
 
   //-------------------------------------formulaire---------------------------
 
@@ -262,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
       emailControl() &&
       adresseControl() &&
       villeControl() &&
-      affichagePrix == 0
+      sommeTotal != 0
     ) {
       //mettre l'objet formulaire values dans le local storage
       localStorage.setItem(
@@ -294,7 +274,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       envoiVersServer(body);
     } else {
-      alert("Veuillez bien remplir le formulaire");
+      alert(
+        "Veuillez bien remplir le formulaire et vérifier que votre panier n'est pas vide"
+      );
     }
   });
   function envoiVersServer(body) {
