@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let produitenregistre = JSON.parse(localStorage.getItem("produit"));
   console.log(produitenregistre);
   let tabproduit = [];
+  if (produitenregistre === null) {
+    produitenregistre = [];
+  }
   for (let t = 0; t < produitenregistre.length; t++) {
     tabproduit[t] = produitenregistre[t]._id;
   }
@@ -19,9 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(positionelement);
 
   let structureproduitpanier = [];
+  console.log(produitenregistre);
+  console.log(produitenregistre === []);
 
   //si le panier est vide//
-  if (produitenregistre === null || produitenregistre == 0) {
+  if (
+    produitenregistre === null ||
+    produitenregistre === 0 ||
+    produitenregistre === []
+  ) {
     const paniervide = `
   <div class="container-panier-vide">
     <div> Le panier est vide </div>
