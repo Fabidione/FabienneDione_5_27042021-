@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(positionelement);
 
   let structureproduitpanier = [];
-  console.log(produitenregistre);
-  console.log(produitenregistre === []);
 
   //si le panier est vide//
   if (
@@ -44,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `   
         <div class="container-recap"> 
         <div class="article">${produitenregistre[k].name}</div>
+        <div class="couleur">${produitenregistre[k].colors}</div>
         <div class="quantite">${produitenregistre[k].quantiteproduit}</div>
         <div class="prixunit">${produitenregistre[k].price / 100} €</div>
         <div><button class="btn-supprimer"> Supprimer l'article</button></div>
@@ -94,6 +93,26 @@ document.addEventListener("DOMContentLoaded", function () {
   positionelement.insertAdjacentHTML("beforeend", affichagePrix);
 
   //------------------------------ajout bouton pour vider tout le panier---------------------//
+  //code html du bouton//
+  const btnViderPanierHtml = `
+<button class="btnviderpanier">Vider le panier</button>`;
+
+  //insertion bouton dans html//
+  positionelement.insertAdjacentHTML("beforeend", btnViderPanierHtml);
+
+  //selection de la réference du bouton//
+  const btnViderPanier = document.querySelector(".btnviderpanier");
+
+  //Suppression de la key produit//
+  btnViderPanier.addEventListener("click", (event) => {
+    event.preventDefault();
+    //removeitem pour vider le local storage//
+    localStorage.removeItem("produit");
+    //alert panier vide//
+    alert("Le panier a été vidé");
+    //rechargement de la page //
+    window.location.href = "panier.html";
+  });
 
   //-------------------------------------formulaire---------------------------
 

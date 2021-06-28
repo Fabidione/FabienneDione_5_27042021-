@@ -52,17 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
           event.preventDefault();
           //recuperation des donnees selectionnees par l'utilisateur//
           const idquantite = document.querySelector("#choixquantite");
-          console.log(idquantite);
           const choix = idquantite.value;
-          console.log(choix);
+          // //recuperation choix couleur selectionnees par l'utilisateur//
+          const color = document.querySelector("#color-select");
+          const choiceColor = color.value;
           //Récupération des valeurs du formulaire:les donnes qu'on veut envoyer au panier//
           const optionproduit = {
             _id: data._id,
             name: data.name,
             price: data.price,
             quantiteproduit: choix,
+            colors: choiceColor,
           };
-          alert("Le produit a bien été ajouté au panier ")
+          alert("Le produit a bien été ajouté au panier ");
           //---------------------------------le local storage---------------------------------//
 
           //stocker la recuperation des valeurs du formulaire dans le local storage//

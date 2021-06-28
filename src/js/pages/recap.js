@@ -30,4 +30,5 @@ document.addEventListener("DOMContentLoaded", function () {
   enlever("sommetotal");
   enlever("idResponse");
   enlever("produit");
+  enlever("formulaireValues");
 });
