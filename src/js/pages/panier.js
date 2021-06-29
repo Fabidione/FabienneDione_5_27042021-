@@ -307,8 +307,18 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
   });
+
+  // -----------------------------------créer un chiffre random pour la commande
+  function random(min, max) {
+    var result = Math.round(Math.random() * (max - min) + min);
+    return result;
+  }
+  console.log(random(1000000000000000, 900000000000000));
+  //mettre le random dans le local storage
+  localStorage.setItem("random", random(1000000000000000, 900000000000000));
+
+  //-------------------------  envoie de l'objet "aEnvoyer" vers le serveur
   function envoiVersServer(body) {
-    // envoie de l'objet "aEnvoyer" vers le serveur
     const promise01 = fetch(`${url}/order`, {
       method: "POST",
       body: body,
@@ -323,13 +333,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const contenu = await response.json();
 
         if (response.ok) {
-          console.log(`resultat de response.ok : ${response.ok}`);
-
-          //recupérer l'id de la reponse du serveur
-          console.log("idResponse");
-          console.log(tabproduit);
-          //mettre l'id dans le local storage
-          localStorage.setItem("idResponse", JSON.stringify(tabproduit));
+          localStorage.setItem(
+            "random",
+            random(1000000000000000, 900000000000000)
+          );
 
           //aller vers la page confirmation commande//
           window.location = "recap.html";

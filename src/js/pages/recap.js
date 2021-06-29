@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!recap) return; //stop//
   //recupérer l'id de la commande dans le local storage
-  let idResponse = JSON.parse(localStorage.getItem("idResponse"));
-  console.log(`idresponse : ${idResponse}`);
+  let random = JSON.parse(localStorage.getItem("random"));
+  console.log(`random : ${random}`);
 
   //recupérer la somme totale de la commande dans le local storage
   const sommeTotal = localStorage.getItem("sommeTotal");
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const positionElement3 = document.querySelector("#texte2");
 
   const strutureHtml = `<h4>Récapitulatif de votre commande</h4>
-  <p class="numero">Numéro de votre commande : ${idResponse}</p>
+  <p class="numero">Numéro de votre commande : ${random}</p>
   <p class="montant">Montant total de votre commande : ${sommeTotal} €</p>
 </div>`;
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.removeItem(key);
   }
   enlever("sommetotal");
-  enlever("idResponse");
+  enlever("random");
   enlever("produit");
   enlever("formulaireValues");
 });
