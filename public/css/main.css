@@ -100,7 +100,7 @@ footer {
   flex-direction: column;
   border: 1px solid #f1ebf2;
   width: 90%;
-  margin: 40px;
+  margin: 30px;
   background-color: #f1ebf2;
   border-radius: 20px;
   text-decoration: none;
@@ -113,41 +113,45 @@ footer {
   margin: 70px 0px 70px; }
 
 .bouton {
+  margin-left: 40px; }
+
+#bouton {
   display: flex;
   justify-content: center; }
-  .bouton a {
+  #bouton a {
     color: white;
     background-color: #9e4592;
-    padding: 20px;
     border-radius: 20px;
-    text-decoration: none; }
+    text-decoration: none;
+    padding: 20px; }
 
 .letitre {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-left: 60px;
-  margin-right: 60px; }
+  margin-left: 40px;
+  margin-right: 40px; }
 
-select,
-label {
-  margin-left: 60px;
-  margin-right: 60px; }
+.choix {
+  margin-left: 40px;
+  margin-right: 40px; }
 
 select {
   margin-bottom: 50px; }
 
 .histoire {
-  text-align: center;
-  padding: 40px 20px; }
+  text-align: center; }
 
 /*style page panier*/
+.oribears {
+  text-align: center;
+  margin: 60px; }
+
 .intro {
   text-align: center; }
 
 .commande-titre {
-  padding: 40px 40px 0px 40px;
-  margin: 40px 40px 0px 40px;
+  text-align: center;
+  margin-bottom: 50px;
   border: 1px solid #f1ebf2;
   background-color: #f1ebf2;
   border-radius: 20px 20px 0px 0px; }
@@ -157,12 +161,29 @@ select {
   padding: 40px;
   border: 1px solid #f1ebf2;
   background-color: #f1ebf2;
-  border-radius: 0px 0px 20px 20px; }
+  border-radius: 20px; }
+  @media (max-width: 400px) {
+    #container-produits-panier {
+      padding: 10px;
+      margin: 20px; } }
 
 .container-recap {
   display: flex;
   flex-direction: row;
-  justify-content: space-around; }
+  justify-content: space-between; }
+
+.container-total {
+  margin: 50px 0px; }
+
+.icone {
+  display: none; }
+  @media (max-width: 600px) {
+    .icone {
+      display: flex; } }
+
+@media (max-width: 600px) {
+  .btn-supprimer {
+    display: none; } }
 
 .article,
 .quantite,
@@ -177,7 +198,7 @@ select {
   color: white;
   background-color: #9e4592;
   padding: 20px;
-  margin-top: 30px; }
+  margin: 30px 0px; }
 
 #formulaire {
   border: 1px solid #f1ebf2;
@@ -191,6 +212,13 @@ select {
   border: 4px solid white;
   padding: 30px;
   margin-top: 60px; }
+  #formulaire h3 {
+    text-align: center;
+    margin-bottom: 50px; }
+  @media (max-width: 400px) {
+    #formulaire {
+      padding: 10px;
+      margin: 20px; } }
   @media (max-width: 340px) {
     #formulaire {
       padding: 10px; } }
@@ -200,17 +228,18 @@ select {
 .adresse,
 .ville,
 .email {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  padding-left: 0px; }
 
 .validercom button {
   margin: 50px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   color: white;
   background-color: #9e4592; }
   @media (max-width: 600px) {
     .validercom button {
-      margin: 0px; } }
+      margin: 30px; } }
 
 .retour-accueil {
   display: flex;
@@ -226,27 +255,27 @@ select {
 /* style page recap*/
 .texte {
   border: 1px solid #f1ebf2;
-  background-color: #f1ebf2;
   margin: 30px;
+  padding: 10px;
   display: flex;
   flex-direction: column; }
 
 .texte1 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 30px; }
+  align-items: center; }
 
-.texte2 {
+#texte2 {
   display: flex;
   flex-direction: column;
+  background-color: #f1ebf2;
   align-items: center;
-  border: 9px solid white;
   width: 90%;
-  margin: 0px 20px 50px 20px;
   padding: 30px; }
+  #texte2 h4 {
+    text-align: center; }
   @media (max-width: 340px) {
-    .texte2 {
+    #texte2 {
       margin-right: 30px; } }
 
 .presentation {
