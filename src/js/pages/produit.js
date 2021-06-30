@@ -92,6 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
   } else {
-    console.log("ko");
+    console.log("Une erreur est survenue");
   }
 });

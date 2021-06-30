@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   console.log(tabproduit);
   //----------------------------affichage des produits du panier------------//
-  // selection de la claisse où je vais injecter le code html//
+  // selection de la classe où je vais injecter le code html//
   const positionelement = document.querySelector("#container-produits-panier");
   console.log(positionelement);
 
@@ -30,9 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     produitenregistre === []
   ) {
     const paniervide = `
-  <div class="container-panier-vide">
     <div> Le panier est vide </div>
-  </div>`;
+  `;
     positionelement.insertAdjacentHTML("beforeend", paniervide);
   } else {
     //si le panier n'est pas vide//
@@ -208,10 +207,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     //--------------------------------gestion validation formulaire----------------------//
-    //texte d'alerte en cas d'anomalies//
-    const textAlert = (value) => {
-      return `${value} : Les chiffres et symboles ne sont pas autorisés \n Ne pas dépasser 3O caractéres, minimun 3 caractéres`;
-    };
 
     //regex pour prenom nom //
     const regExPrenomNom = (value) => {
@@ -238,7 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (regExPrenomNom(lePrenom)) {
         return true;
       } else {
-        alert(textAlert("Prenom"));
+        alert(
+          "Les chiffres et symboles ne sont pas autorisés \n Ne pas dépasser 3O caractéres, minimun 3 caractéres"
+        );
         return false;
       }
     }
@@ -248,7 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (regExPrenomNom(leNom)) {
         return true;
       } else {
-        alert(textAlert("nom"));
+        alert(
+          "Les chiffres et symboles ne sont pas autorisés \n Ne pas dépasser 3O caractéres, minimun 3 caractéres"
+        );
         return false;
       }
     }
@@ -279,7 +278,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (regExVille(laVille)) {
         return true;
       } else {
-        alert(textAlert("ville"));
+        alert(
+          "Les chiffres et symboles ne sont pas autorisés \n Ne pas dépasser 3O caractéres, minimun 3 caractéres"
+        );
         return false;
       }
     }
