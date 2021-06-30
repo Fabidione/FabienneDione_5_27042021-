@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>`;
 
   //injection html//
-  positionElement3.insertAdjacentHTML("afterend", strutureHtml);
+  positionElement3.insertAdjacentHTML("beforeend", strutureHtml);
 
   //effacer le panier
   function enlever(key) {

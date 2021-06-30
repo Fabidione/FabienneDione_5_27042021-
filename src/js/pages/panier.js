@@ -42,10 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
         `   
         <div class="container-recap"> 
         <div class="article">${produitenregistre[k].name}</div>
-        <div class="couleur">${produitenregistre[k].colors}</div>
         <div class="quantite">${produitenregistre[k].quantiteproduit}</div>
+
+        <div class="couleur">${produitenregistre[k].colors}</div>
         <div class="prixunit">${produitenregistre[k].price / 100} €</div>
-        <div><button class="btn-supprimer"> Supprimer l'article</button></div>
+        <div class="btn-supprimer"><button> Supprimer l'article</button></div>
+        <div class="icone"><i class="fas fa-shopping-basket"></i></div>
       </div>`;
     }
     positionelement.insertAdjacentHTML("beforeend", structureproduitpanier);
@@ -73,6 +75,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       //alert pour avertir que le produit a été supprimé du panier//
       window.location.href = "panier.html";
+    });
+  }
+  //------------------------------gestion de l'icone panier---------------------------------//
+  //ajout des references du boutton//
+  let btnSupprimerx = document.querySelectorAll(".icone");
+  console.log(btnSupprimerx);
+
+  for (let l = 0; l < btnSupprimerx.length; l++) {
+    btnSupprimerx[l].addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let nomSupprimerx = produitenregistre[l].name;
+      console.log(nomSupprimerx);
+
+      // avec la methode filter je selectionne les elements à garder et je supprime l'element où le bouton supprime a été cliqué//
+      produitenregistre = produitenregistre.filter(
+        (el) => el.name !== nomSupprimerx
+      );
     });
   }
 
@@ -134,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="nom">
           <label for="nom"> 
             Nom
-          </label>
+          </label></br>
           <input type="text" name="nom" id="nom" required />
         </div>
         <div class="adresse">
@@ -146,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="ville">
           <label for="ville">
             Votre ville
-          </label>
+          </label></br>
           <input type="text" name="ville" id="ville" required />
         </div>
         <div class="email">

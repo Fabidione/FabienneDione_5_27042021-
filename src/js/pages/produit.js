@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="letitre"><h4> ${data.name}</h4>
       <p>${data.description}</p>
       <p>${renderprice(data.price)}</p></div>
-      <label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
+      <div class="choix"><label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
       <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
       <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>
       <label for="color-select">Personnalisez sa couleur :</label>
       <select name="color" id="color-select">
       <option value="choix">--Choisissez votre couleur--</option>`;
         for (let i = 0; i < data.colors.length; i++) {
-          resultat += `<option value="${data.colors[i]}">${data.colors[i]}</option>`;
+          resultat += `<option value="${data.colors[i]}">${data.colors[i]}</option></div>`;
         }
         resultat += `</select><div id="bouton">
       <a href="panier.html?id=${data._id}">Ajouter au panier</a></div></div>`;
