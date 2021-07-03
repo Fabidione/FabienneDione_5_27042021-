@@ -365,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(`response du serveur : ${response.status}`);
         }
       } catch (e) {
-        console.log("erreur qui vient du catch()");
         console.log(e);
         alert(`erreur qui vient du catch() ${e}`);
       }
