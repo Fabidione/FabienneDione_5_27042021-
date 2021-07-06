@@ -93,6 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
       produitenregistre = produitenregistre.filter(
         (el) => el.name !== nomSupprimerx
       );
+      //envoie la variable dans le local storage
+      //transformation format json et l'envoyer dans la key produit localstorage//
+      localStorage.setItem("produit", JSON.stringify(produitenregistre));
+
+      //alert pour avertir que le produit a été supprimé du panier//
+      window.location.href = "panier.html";
     });
   }
 
