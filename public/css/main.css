@@ -324,8 +324,7 @@ section {
   font-size: 1.4em; }
 
 .histoire {
-  text-align: center;
-  padding: 40px 20px;
-  margin-left: 50px; }
+  text-align: justify;
+  margin: 30px; }
 
 /*# sourceMappingURL=main.css.map */
