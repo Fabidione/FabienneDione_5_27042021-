@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="bouton">
           <a href="produit.html?id=${
             data[i]._id
-          }">Plus de details</a></div></div>`;
+          }">Plus de détails</a></div></div>`;
       }
       document.getElementById("ourson").innerHTML = resultat;
     });

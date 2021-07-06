@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }"><a href="produit.html"></a></div>
       <div class="letitre"><h4> ${data.name}</h4>
       <p>${data.description}</p>
-      <p>${renderprice(data.price)}</p></div>
+      <p class="price">${renderprice(data.price)}</p></div>
       <div class="choix"><label for="quantite">Choisissez votre quantité :</label><form><select id="choixquantite">
       <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
       <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>

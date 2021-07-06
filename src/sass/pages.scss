@@ -9,7 +9,6 @@
     margin-right: 20px;
   }
   & img {
-    width: 60%;
     object-fit: contain;
     text-align: center;
   }
@@ -40,7 +39,14 @@
 #bouton {
   display: flex;
   justify-content: center;
-  margin-left: 120px;
+  margin-left: 70px;
+  font-size: 0.9em;
+  @media (max-width: 1100px) {
+    margin-left: 40px;
+  }
+  @media (max-width: 700px) {
+    margin-left: 0px;
+  }
 
   & a {
     color: $colorwhite;
@@ -54,20 +60,26 @@
   display: flex;
   flex-direction: column;
   margin-left: 60px;
-  margin-right: 40px;
+  margin-right: 30px;
   @media (max-width: 900px) {
     margin-left: 40px;
   }
+  @media (max-width: 550px) {
+    margin-left: 30px;
+  }
 }
 .choix {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 60px;
+  margin-right: 60px;
+  @media (max-width: 900px) {
+    margin-left: 40px;
+  }
+  @media (max-width: 550px) {
+    margin-left: 30px;
+  }
 }
 select {
   margin-bottom: 50px;
-}
-.histoire {
-  text-align: center;
 }
 
 /*style page panier*/
