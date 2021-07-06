@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .name}"><a href="produit.html"></a></div>
           <div class="letitre"><h4> ${data[i].name}</h4>
           <p>${data[i].description}</p>
-          <p>${data[i].price / 100}€</p></div>
+          <p class="price">${data[i].price / 100}€</p></div>
           <div class="bouton">
           <a href="produit.html?id=${
             data[i]._id

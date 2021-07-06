@@ -110,14 +110,16 @@ footer {
 .image {
   display: flex;
   justify-content: center;
-  margin: 70px 0px 70px; }
+  margin: 70px 0px 30px 0px; }
 
 .bouton {
-  margin-left: 40px; }
+  font-size: 1.2em;
+  text-align: center; }
 
 #bouton {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-left: 120px; }
   #bouton a {
     color: white;
     background-color: #9e4592;
@@ -128,8 +130,11 @@ footer {
 .letitre {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-right: 40px; }
+  @media (max-width: 900px) {
+    .letitre {
+      margin-left: 40px; } }
 
 .choix {
   margin-left: 40px;
@@ -293,11 +298,12 @@ select {
 @media (max-width: 600px) {
   .leNorbert {
     margin-right: 30px; } }
+.leNorbert h4 {
+  font-size: 1.6em; }
 .leNorbert img {
   display: flex;
   flex-direction: row;
   border: 1px solid #f1ebf2;
-  margin: 40px;
   width: 90%;
   background-color: #f1ebf2;
   border-radius: 20px;
@@ -311,8 +317,11 @@ section {
 
 .titre {
   display: flex;
-  align-items: center;
   padding-left: 20px; }
+
+.price {
+  font-weight: bold;
+  font-size: 1.4em; }
 
 .histoire {
   text-align: center;

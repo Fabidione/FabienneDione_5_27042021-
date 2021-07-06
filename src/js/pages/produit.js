@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></form>
       <label for="color-select">Personnalisez sa couleur :</label>
       <select name="color" id="color-select">
-      <option value="choix">--Choisissez votre couleur--</option>`;
+      `;
         for (let i = 0; i < data.colors.length; i++) {
           resultat += `<option value="${data.colors[i]}">${data.colors[i]}</option></div>`;
         }

@@ -30,15 +30,17 @@
 .image {
   display: flex;
   justify-content: center;
-  margin: 70px 0px 70px;
+  margin: 70px 0px 30px 0px;
 }
 .bouton {
-  margin-left: 40px;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 #bouton {
   display: flex;
   justify-content: center;
+  margin-left: 120px;
 
   & a {
     color: $colorwhite;
@@ -51,8 +53,11 @@
 .letitre {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-right: 40px;
+  @media (max-width: 900px) {
+    margin-left: 40px;
+  }
 }
 .choix {
   margin-left: 40px;

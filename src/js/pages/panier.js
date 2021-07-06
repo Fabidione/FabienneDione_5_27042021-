@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(positionelement);
 
   let structureproduitpanier = [];
+  console.log(produitenregistre);
 
   //si le panier est vide//
   if (
@@ -153,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="nom">
           <label for="nom"> 
             Nom
-          </label></br>
+          </label>
           <input type="text" name="nom" id="nom" required />
         </div>
         <div class="adresse">
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="ville">
           <label for="ville">
             Votre ville
-          </label></br>
+          </label>
           <input type="text" name="ville" id="ville" required />
         </div>
         <div class="email">
