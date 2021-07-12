@@ -7,6 +7,6 @@ L’application web comprend 4 pages :
   	●  une page “panier” contenant un résumé des produits dans le panier, le prix total et un formulaire permettant de passer une commande;
  	●  une page de confirmation de commande, remerciant l'utilisateur pour sa commande, et indiquant le prix total et l'identifiant de commande envoyé par le 		serveur. 
 
-LES PREREQUIS
+LES PREREQUIS :
 Installation de Node et npm 
 Le serveur s'exécute sur localhost avec le port par défaut 3000.
