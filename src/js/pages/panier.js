@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <form action="#">
         <div class="prenom">
           <label for="prenom"> 
-            Votre prénom
+            Prénom
           </label>
           <input type="text" name ="prenom" id="prenom" required />
         </div>
@@ -165,19 +165,19 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class="adresse">
           <label for="adresse">
-            Votre adresse 
+            Adresse 
           </label>
           <input type="text" name="adresse" id="adresse" required />
         </div>
         <div class="ville">
           <label for="ville">
-            Votre ville
+            Ville
           </label>
           <input type="text" name="ville" id="ville" required />
         </div>
         <div class="email">
           <label for="email">
-            Votre adresse email
+            Adresse email
           </label>
           <input type="text" name="email"  id="email" required />
         </div>
