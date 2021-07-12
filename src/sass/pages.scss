@@ -187,6 +187,9 @@ select {
 .retour-accueil {
   display: flex;
   justify-content: center;
+  & a {
+    text-decoration: none;
+  }
 }
 .retour {
   margin: 50px;
