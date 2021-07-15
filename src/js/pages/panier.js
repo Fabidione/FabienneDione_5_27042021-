@@ -336,15 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // -----------------------------------créer un chiffre random pour la commande
-  function random(min, max) {
-    var result = Math.round(Math.random() * (max - min) + min);
-    return result;
-  }
-  console.log(random(1000000000000000, 900000000000000));
-  //mettre le random dans le local storage
-  localStorage.setItem("random", random(1000000000000000, 900000000000000));
-
   //-------------------------  envoie de l'objet "aEnvoyer" vers le serveur
   function envoiVersServer(body) {
     const promise01 = fetch(`${url}/order`, {
@@ -359,13 +350,12 @@ document.addEventListener("DOMContentLoaded", function () {
       //si la promesse n'est pas résolu
       try {
         const contenu = await response.json();
-
+        console.log(contenu);
         if (response.ok) {
-          localStorage.setItem(
-            "random",
-            random(1000000000000000, 900000000000000)
-          );
-
+          console.log(`resultat de response :${response.ok}`);
+          console.log("id de response");
+          console.log(contenu.body);
+          localStorage.setItem("responseid", contenu.orderId);
           //aller vers la page confirmation commande//
           window.location = "recap.html";
         } else {
